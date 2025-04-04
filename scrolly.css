@@ -1,0 +1,124 @@
+/* scrolly.css defines the styles for scrollytelling elements */
+
+.scrolly-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.scrolly-container > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 0 0 auto;
+}
+
+/* CSS properties common to all sticky content */
+.sticky-container {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 0;
+  top: 12.5vh;
+  height: 75vh;
+  width: 75%;
+  /* The opacity transition will fade the content in/out when it gets replaced, 
+  so set the opacity to 1 when fading in and 0 when fading out */
+  transition: opacity 0.5s linear;
+}
+
+.sticky-image-container {
+  margin: 0;
+
+  /* Center everything inside */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  display: none; /* hide by default, let meta data decide when to display */
+  height: 100%; /* fill space provided by sticky-container parent */
+  width: 100%; /* fill space provided by sticky-container parent */
+}
+
+.sticky-image-container img {
+  padding: 0rem;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sticky-map-container {
+  display: none; /* hide by default, let meta data decide when to display */
+  z-index: 1; /* Ensure map displays above other content */
+  height: 100%; /* fill space provided by sticky-container parent */
+  width: 100%; /* fill space provided by sticky-container parent */
+}
+
+.sticky-video-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* videos have an iframe inserted inside them so need an extra layer of width/height specification */
+.sticky-video-container * {
+  width: 100%;
+  height: 100%;
+}
+
+.sticky-container img {
+  /* eases transition when zoomming an image */
+  transition: transform 1s linear, opacity 0.5s linear;
+}
+
+.sticky-container video,
+map {
+  /* eases transition when zoomming an image or video */
+  transition: opacity 0.5s linear;
+}
+
+.steps-container {
+  position: relative;
+  width: 25%;
+  padding: 0 0rem;
+}
+
+.step {
+  margin: 0rem 1rem 10rem 0rem;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 30%;
+}
+
+.step-content {
+  background-color: #0001;
+  padding: 1rem;
+}
+
+.step:first-child {
+  margin-top: 5rem;
+}
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step.is-active {
+  opacity: 100%;
+}
+
+.step p {
+  text-align: center;
+  padding: 1rem;
+  font-size: clamp(10px, 3.5vw, 24px);
+}
+
+.text-content {
+  width: 75%;
+  margin: 5rem auto 5rem auto;
+}
+
+.text-content * {
+  text-align: left;
+  margin-bottom: 1rem;
+}
